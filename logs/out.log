@@ -1,0 +1,68 @@
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+  <-- GET /article/getList?page=1&pageSize=100&fetchTop=true
+  <-- GET /article/getList?pageSize=10
+  <-- GET /tags/getList
+  <-- GET /categories/getList
+Executing (default): SELECT `name`, COUNT(`name`) AS `count` FROM `category` AS `category` GROUP BY `name`;
+Executing (default): SELECT `name`, COUNT(`name`) AS `count` FROM `tag` AS `tag` GROUP BY `name`;
+  --> GET /categories/getList 200 21ms 301b
+  --> GET /tags/getList 200 24ms 732b
+Executing (default): SELECT count(DISTINCT(`article`.`id`)) AS `count` FROM `article` AS `article` INNER JOIN `tag` AS `tags` ON `article`.`id` = `tags`.`articleId` INNER JOIN `category` AS `categories` ON `article`.`id` = `categories`.`articleId` LEFT OUTER JOIN `comment` AS `comments` ON `article`.`id` = `comments`.`articleId` LEFT OUTER JOIN `reply` AS `comments->replies` ON `comments`.`id` = `comments->replies`.`commentId` WHERE `article`.`showOrder` = 1;
+Executing (default): SELECT `article`.*, `tags`.`id` AS `tags.id`, `tags`.`name` AS `tags.name`, `categories`.`id` AS `categories.id`, `categories`.`name` AS `categories.name`, `comments`.`id` AS `comments.id`, `comments->replies`.`id` AS `comments.replies.id` FROM (SELECT `article`.`id`, `article`.`title`, `article`.`content`, `article`.`showOrder`, `article`.`createdAt`, `article`.`updatedAt` FROM `article` AS `article` WHERE `article`.`showOrder` = 1 AND ( SELECT `articleId` FROM `tag` AS `tags` WHERE (`tags`.`articleId` = `article`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `articleId` FROM `category` AS `categories` WHERE (`categories`.`articleId` = `article`.`id`) LIMIT 1 ) IS NOT NULL ORDER BY `article`.`updatedAt` DESC LIMIT 0, 100) AS `article` INNER JOIN `tag` AS `tags` ON `article`.`id` = `tags`.`articleId` INNER JOIN `category` AS `categories` ON `article`.`id` = `categories`.`articleId` LEFT OUTER JOIN `comment` AS `comments` ON `article`.`id` = `comments`.`articleId` LEFT OUTER JOIN `reply` AS `comments->replies` ON `comments`.`id` = `comments->replies`.`commentId` ORDER BY `article`.`updatedAt` DESC;
+Executing (default): SELECT count(DISTINCT(`article`.`id`)) AS `count` FROM `article` AS `article` INNER JOIN `tag` AS `tags` ON `article`.`id` = `tags`.`articleId` INNER JOIN `category` AS `categories` ON `article`.`id` = `categories`.`articleId` LEFT OUTER JOIN `comment` AS `comments` ON `article`.`id` = `comments`.`articleId` LEFT OUTER JOIN `reply` AS `comments->replies` ON `comments`.`id` = `comments->replies`.`commentId`;
+Executing (default): SELECT `article`.*, `tags`.`id` AS `tags.id`, `tags`.`name` AS `tags.name`, `categories`.`id` AS `categories.id`, `categories`.`name` AS `categories.name`, `comments`.`id` AS `comments.id`, `comments->replies`.`id` AS `comments.replies.id` FROM (SELECT `article`.`id`, `article`.`title`, `article`.`content`, `article`.`showOrder`, `article`.`createdAt`, `article`.`updatedAt` FROM `article` AS `article` WHERE ( SELECT `articleId` FROM `tag` AS `tags` WHERE (`tags`.`articleId` = `article`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `articleId` FROM `category` AS `categories` WHERE (`categories`.`articleId` = `article`.`id`) LIMIT 1 ) IS NOT NULL ORDER BY `article`.`createdAt` DESC LIMIT 0, 10) AS `article` INNER JOIN `tag` AS `tags` ON `article`.`id` = `tags`.`articleId` INNER JOIN `category` AS `categories` ON `article`.`id` = `categories`.`articleId` LEFT OUTER JOIN `comment` AS `comments` ON `article`.`id` = `comments`.`articleId` LEFT OUTER JOIN `reply` AS `comments->replies` ON `comments`.`id` = `comments->replies`.`commentId` ORDER BY `article`.`createdAt` DESC;
+  --> GET /article/getList?page=1&pageSize=100&fetchTop=true 200 59ms 25.29kb
+  --> GET /article/getList?pageSize=10 200 89ms 45.37kb
+sequelize connect success
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+  <-- GET /tags/getList
+  <-- GET /article/getList?page=1&pageSize=100&fetchTop=true
+  <-- GET /categories/getList
+  <-- GET /article/getList?pageSize=10
+Executing (default): SELECT `name`, COUNT(`name`) AS `count` FROM `tag` AS `tag` GROUP BY `name`;
+Executing (default): SELECT `name`, COUNT(`name`) AS `count` FROM `category` AS `category` GROUP BY `name`;
+  --> GET /tags/getList 200 20ms 732b
+  --> GET /categories/getList 200 19ms 301b
+Executing (default): SELECT count(DISTINCT(`article`.`id`)) AS `count` FROM `article` AS `article` INNER JOIN `tag` AS `tags` ON `article`.`id` = `tags`.`articleId` INNER JOIN `category` AS `categories` ON `article`.`id` = `categories`.`articleId` LEFT OUTER JOIN `comment` AS `comments` ON `article`.`id` = `comments`.`articleId` LEFT OUTER JOIN `reply` AS `comments->replies` ON `comments`.`id` = `comments->replies`.`commentId`;
+Executing (default): SELECT `article`.*, `tags`.`id` AS `tags.id`, `tags`.`name` AS `tags.name`, `categories`.`id` AS `categories.id`, `categories`.`name` AS `categories.name`, `comments`.`id` AS `comments.id`, `comments->replies`.`id` AS `comments.replies.id` FROM (SELECT `article`.`id`, `article`.`title`, `article`.`content`, `article`.`showOrder`, `article`.`createdAt`, `article`.`updatedAt` FROM `article` AS `article` WHERE ( SELECT `articleId` FROM `tag` AS `tags` WHERE (`tags`.`articleId` = `article`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `articleId` FROM `category` AS `categories` WHERE (`categories`.`articleId` = `article`.`id`) LIMIT 1 ) IS NOT NULL ORDER BY `article`.`createdAt` DESC LIMIT 0, 10) AS `article` INNER JOIN `tag` AS `tags` ON `article`.`id` = `tags`.`articleId` INNER JOIN `category` AS `categories` ON `article`.`id` = `categories`.`articleId` LEFT OUTER JOIN `comment` AS `comments` ON `article`.`id` = `comments`.`articleId` LEFT OUTER JOIN `reply` AS `comments->replies` ON `comments`.`id` = `comments->replies`.`commentId` ORDER BY `article`.`createdAt` DESC;
+Executing (default): SELECT count(DISTINCT(`article`.`id`)) AS `count` FROM `article` AS `article` INNER JOIN `tag` AS `tags` ON `article`.`id` = `tags`.`articleId` INNER JOIN `category` AS `categories` ON `article`.`id` = `categories`.`articleId` LEFT OUTER JOIN `comment` AS `comments` ON `article`.`id` = `comments`.`articleId` LEFT OUTER JOIN `reply` AS `comments->replies` ON `comments`.`id` = `comments->replies`.`commentId` WHERE `article`.`showOrder` = 1;
+Executing (default): SELECT `article`.*, `tags`.`id` AS `tags.id`, `tags`.`name` AS `tags.name`, `categories`.`id` AS `categories.id`, `categories`.`name` AS `categories.name`, `comments`.`id` AS `comments.id`, `comments->replies`.`id` AS `comments.replies.id` FROM (SELECT `article`.`id`, `article`.`title`, `article`.`content`, `article`.`showOrder`, `article`.`createdAt`, `article`.`updatedAt` FROM `article` AS `article` WHERE `article`.`showOrder` = 1 AND ( SELECT `articleId` FROM `tag` AS `tags` WHERE (`tags`.`articleId` = `article`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `articleId` FROM `category` AS `categories` WHERE (`categories`.`articleId` = `article`.`id`) LIMIT 1 ) IS NOT NULL ORDER BY `article`.`updatedAt` DESC LIMIT 0, 100) AS `article` INNER JOIN `tag` AS `tags` ON `article`.`id` = `tags`.`articleId` INNER JOIN `category` AS `categories` ON `article`.`id` = `categories`.`articleId` LEFT OUTER JOIN `comment` AS `comments` ON `article`.`id` = `comments`.`articleId` LEFT OUTER JOIN `reply` AS `comments->replies` ON `comments`.`id` = `comments->replies`.`commentId` ORDER BY `article`.`updatedAt` DESC;
+  --> GET /article/getList?page=1&pageSize=100&fetchTop=true 200 64ms 25.29kb
+  --> GET /article/getList?pageSize=10 200 70ms 45.37kb
+sequelize connect success
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
+sequelize connect success
+sever listen on http://127.0.0.1:6060
