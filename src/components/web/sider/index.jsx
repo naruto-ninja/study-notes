@@ -46,7 +46,7 @@ class BolgSider extends Component {
     return (
       <div className="sider-wrapper">
         <img src={avatar} className="sider-avatar" alt="" />
-        <h2 className="name">naruto</h2>
+        {/* <h2 className="name">naruto</h2> */}
         {/* <div className="title">前端打杂人员，略微代码洁癖</div> */}
         {/* <ul className="link-list">
           <li>
