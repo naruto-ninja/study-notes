@@ -6,26 +6,26 @@ const CategoryController = require('../controllers/category')
 const UserController = require('../controllers/user')
 const CommentController = require('../controllers/comment')
 
-router.use('/article', ArticleRouter.routes())
-router.use('/user', UserRouter.routes())
+router.use('/api/article', ArticleRouter.routes())
+router.use('/api/user', UserRouter.routes())
 
 // 登录注册
-router.post('/login', UserController.login)
-router.post('/register', UserController.register)
+router.post('/api/login', UserController.login)
+router.post('/api/register', UserController.register)
 
 // 获取所有标签以及每个标签的总数
-router.get('/tags/getList', TagController.getTags)
+router.get('/api/tags/getList', TagController.getTags)
 //根据标签的名字获取文章
-router.get('/tags/getArticles', TagController.getArticlesByTag)
+router.get('/api/tags/getArticles', TagController.getArticlesByTag)
 
 // 获取所有分类以及分类的总数
-router.get('/categories/getList', CategoryController.getCategories)
-router.get('/categories/getArticles', CategoryController.getArticlesByCate)
+router.get('/api/categories/getList', CategoryController.getCategories)
+router.get('/api/categories/getArticles', CategoryController.getArticlesByCate)
 
 // 删除评论
-router.delete('/comment/del', CommentController.del)
-router.delete('/reply/del', CommentController.del)
-router.get('/comment/getAboutComments', CommentController.getAboutComments)
+router.delete('/api/comment/del', CommentController.del)
+router.delete('/api/reply/del', CommentController.del)
+router.get('/api/comment/getAboutComments', CommentController.getAboutComments)
 
 router.get('/', async ctx => {
   ctx.body = 'hello koa2'

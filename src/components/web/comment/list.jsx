@@ -6,6 +6,7 @@ import AuthorAvatar from '@/components/web/AuthorAvatar'
 import { random, groupBy, translateMarkdown } from '@/lib'
 import { Comment, Avatar, Button, Tooltip, Input, Icon, Popconfirm, message,  Modal } from 'antd'
 import moment from 'moment'
+import api from '@/api/index'
 
 const { TextArea } = Input
 
@@ -145,7 +146,7 @@ class CommentList extends Component {
     }
     const { articleId } = this.props
     this.axios
-      .post('/user/reply', {
+      .post(api['userReply'], {
         content,
         articleId,
         commentId: this.state.commentId
@@ -158,14 +159,14 @@ class CommentList extends Component {
 
   delComment = (item, commentId) => {
     if (item.replies) {
-      this.axios.delete('/comment/del', { params: { commentId: item.id } }).then(res => {
+      this.axios.delete(api['commonDel'], { params: { commentId: item.id } }).then(res => {
         if (res.code !== 200) return message.error(res.message)
         const list = this.props.commentList.filter(d => d.id !== item.id)
         this.props.setCommentList(list)
         message.success(res.message)
       })
     } else {
-      this.axios.delete('/reply/del', { params: { replyId: item.id } }).then(res => {
+      this.axios.delete(api['replyDel'], { params: { replyId: item.id } }).then(res => {
         if (res.code !== 200) return message.error(res.message)
 
         const list = [...this.props.commentList]

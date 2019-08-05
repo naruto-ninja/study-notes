@@ -8,6 +8,7 @@ import { random, getCommentsCount } from '@/lib'
 import { Table, Divider, Tag, Modal, message, Badge, Button } from 'antd'
 import QueryForm from './queryForm'
 import moment from 'moment'
+import api from '@/api/index'
 
 @connect(state => ({
   colorList: state.common.colorList,
@@ -120,7 +121,7 @@ class Manager extends Component {
    */
   setTop = record => {
     const showOrder = record.showOrder ? 0 : 1
-    this.axios.put('/article/update', {
+    this.axios.put(api['articleUpdate'], {
       articleId: record.id,
       showOrder
     }).then(() => {
@@ -134,7 +135,7 @@ class Manager extends Component {
   fetchList = ({ current = 1, pageSize = 10, ...query }) => {
     this.setState({ loading: true })
 
-    this.axios.get('/article/getList', { params: { page: current, pageSize, ...query } }).then(res => {
+    this.axios.get(api['articleGetList'], { params: { page: current, pageSize, ...query } }).then(res => {
       const pagination = {
         current,
         pageSize,
@@ -156,7 +157,7 @@ class Manager extends Component {
       title: '您确认删除该文章?，此操作不可恢复！',
       content: `文章： ${title} `,
       onOk: () => {
-        this.axios.delete('/article/delete', { params: { articleId } }).then(res => {
+        this.axios.delete(api['articleDel'], { params: { articleId } }).then(res => {
           if (res.code === 200) {
             this.fetchList(this.state.pagination)
             message.success(res.message)

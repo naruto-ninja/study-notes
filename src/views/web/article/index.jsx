@@ -10,6 +10,7 @@ import Tags from '../Tags'
 import Comment from '@/components/web/comment'
 import { Drawer, Icon, Divider } from 'antd'
 import axios from '@/lib/axios'
+import api from '@/api/index'
 
 function ArticleDetail(props) {
   const [title, setTitle] = useState('')
@@ -24,7 +25,7 @@ function ArticleDetail(props) {
     const fetchData = id => {
       setLoading(true)
       axios
-        .get(`/article/get/${id}`)
+        .get(`${api['articleGet']}/${id}`)
         .then(res => {
           const content = translateMarkdown(res.data.content)
           const { title, createdAt, tags, categories, comments } = res.data

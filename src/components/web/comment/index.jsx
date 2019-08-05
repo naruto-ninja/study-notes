@@ -8,6 +8,7 @@ import AuthorAvatar from '@/components/web/AuthorAvatar'
 import { getCommentsCount } from '@/lib'
 import { openAuthModal } from '@/redux/common/actions'
 import { logout } from '@/redux/user/actions'
+import api from '@/api/index'
 
 import { Comment, Avatar, Form, Button, Divider, Input, Icon, Menu, Dropdown, message, Modal } from 'antd'
 import CommentList from './list'
@@ -50,7 +51,7 @@ function ArticleComment(props) {
     setSubmitting(true)
 
     axios
-      .post('/user/comment', { articleId: props.articleId, content: value })
+      .post(api['userCommon'], { articleId: props.articleId, content: value })
       .then(res => {
         setSubmitting(false)
         setValue('')

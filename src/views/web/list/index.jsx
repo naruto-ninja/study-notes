@@ -62,7 +62,7 @@ class List extends Component {
   fetchList = ({ page = 1, name, type }) => {
     this.setState({ loading: true })
     this.axios
-      .get(`/${type}/getArticles`, { params: { page, pageSize: 15, name } })
+      .get(`/api/${type}/getArticles`, { params: { page, pageSize: 15, name } })
       .then(res => {
         this.setState({ list: res.rows, total: res.count, loading: false })
       })

@@ -12,6 +12,7 @@ import Tags from '../Tags'
 import Preview from './preview'
 import Loading from '@/components/helper/Loading'
 import BlogPagination from '@/components/web/pagination'
+import api from '@/api';
 
 const NoDataDesc = ({ keyword }) => (
   <Fragment>
@@ -36,7 +37,7 @@ function Home(props) {
     const fetchList = ({ page, keyword }) => {
       setLoading(true)
       axios
-        .get('/article/getList', { params: { page, pageSize: 10, title: keyword } })
+        .get(api['articleGetList'], { params: { page, pageSize: 10, title: keyword } })
         .then(res => {
           const list = res.rows
           // 处理 read more 的内容

@@ -3,6 +3,7 @@ import { getCommentsCount } from '@/lib'
 import moment from 'moment'
 import QueryForm from './queryForm'
 import { Table, Button, Modal, message, Badge } from 'antd'
+import api from '@/api/index'
 
 class UserManage extends Component {
   state = {
@@ -48,7 +49,7 @@ class UserManage extends Component {
 
   fetchList = ({ current = 1, pageSize = 10, ...query }) => {
     this.setState({ loading: true })
-    this.axios.get('/user/getUserList', { params: { page: current, pageSize, ...query } }).then(res => {
+    this.axios.get(api['userGetList'], { params: { page: current, pageSize, ...query } }).then(res => {
       const pagination = {
         current,
         pageSize,
@@ -63,7 +64,7 @@ class UserManage extends Component {
       title: '您确认删除该用户?，此操作不可恢复！',
       content: `用户： ${username} `,
       onOk: () => {
-        this.axios.delete('/user/delete', { params: { userId } }).then(res => {
+        this.axios.delete(api['userDel'], { params: { userId } }).then(res => {
           if (res.code === 200) {
             this.fetchList(this.state.pagination)
             message.success(res.message)

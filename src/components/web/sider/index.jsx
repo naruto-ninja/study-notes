@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import avatar from '@/assets/author_avatar.png'
 import { Link } from 'react-router-dom'
 import { Divider, Tag, Icon } from 'antd'
+import api from '@/api';
 
 function random(colorList) {
   const len = colorList.length
@@ -34,7 +35,7 @@ class BolgSider extends Component {
   fetchList = async mode => {
     const queryParams =
       mode === 1 ? { params: { page: 1, pageSize: 6 } } : { params: { page: 1, pageSize: 100, fetchTop: true } }
-    const result = await this.axios.get('/article/getList', queryParams)
+    const result = await this.axios.get(api['articleGetList'], queryParams)
     return result.rows
   }
 

@@ -6,6 +6,7 @@ import { groupBy } from '@/lib'
 import { Timeline, Icon, Pagination, Spin } from 'antd'
 import BlogPagination from '@/components/web/pagination'
 import axios from '@/lib/axios'
+import api from '@/api/index'
 
 function Archives(props) {
   const [list, setList] = useState([])
@@ -20,7 +21,7 @@ function Archives(props) {
   function fetchList(page = 1) {
     setLoading(true)
     axios
-      .get('/article/getList', { params: { page, pageSize: 15 } })
+      .get(api['articleGetList'], { params: { page, pageSize: 15 } })
       .then(res => {
         const list = groupBy(res.rows, item => item.createdAt.slice(0, 4))
         setList(list)
