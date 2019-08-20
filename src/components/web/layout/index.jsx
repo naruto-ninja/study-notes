@@ -31,9 +31,9 @@ class WebLayout extends Component {
             <div className="content-wrapper">
               {/* <div className="content-inner-wrapper">{this.props.children}</div> */}
               {this.props.children}
-              {/* <Footer className="footer">
-                © 2019 <Icon type="user" /> Guodada
-              </Footer> */}
+              <Footer className="footer">
+                © 2019 浙ICP备19032547号
+              </Footer>
             </div>
           </Col>
         </Row>
