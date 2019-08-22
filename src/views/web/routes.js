@@ -1,24 +1,22 @@
-import Layout from '@/components/web/layout'
-import PageNotFound from '@/components/404'
-import Home from './home'
-import Article from './article'
-import Archives from './archives'
-import Categories from './categories'
-import List from './list'
-import About from './about'
+import * as utils from '@/utils'
 
-export default {
+/**
+ * @AsyncComponent {func} 实现动态加载路由（按需加载） dynamic router方法
+ *
+ */
+
+ export default {
   path: '/',
   name: 'home',
-  component: Layout,
+  component: utils.AsyncComponent(() => import(/* webpackChunkName:'webLayout' */ '@/components/web/layout')),
+  // component: Layout,
   childRoutes: [
-    { path: '', component: Home },
-    { path: 'archives', component: Archives },
-    { path: 'article/:id', component: Article },
-    { path: 'categories', component: Categories },
-    { path: 'categories/:name', component: List },
-    { path: 'tags/:name', component: List },
-    // { path: 'about', component: About },
-    { path: '*', component: PageNotFound }
+    { path: '', component: utils.AsyncComponent(() => import(/* webpackChunkName:'home' */ './home')) },
+    { path: 'archives', component: utils.AsyncComponent(() => import(/* webpackChunkName:'archives' */ './archives')) },
+    { path: 'article/:id', component: utils.AsyncComponent(() => import(/* webpackChunkName:'article' */ './article')) },
+    { path: 'categories', component: utils.AsyncComponent(() => import(/* webpackChunkName:'categories' */ './categories')) },
+    { path: 'categories/:name', component: utils.AsyncComponent(() => import(/* webpackChunkName:'list1' */ './list')) },
+    { path: 'tags/:name', component: utils.AsyncComponent(() => import(/* webpackChunkName:'list2' */ './list')) },
+    { path: '*', component: utils.AsyncComponent(() => import(/* webpackChunkName:'404' */ '@/components/404')) }
   ]
 }

@@ -47,22 +47,7 @@ class BolgSider extends Component {
     return (
       <div className="sider-wrapper">
         <img src={avatar} className="sider-avatar" alt="" />
-        {/* <h2 className="name">naruto</h2> */}
-        {/* <div className="title">前端打杂人员，略微代码洁癖</div> */}
-        {/* <ul className="link-list">
-          <li>
-            <Icon type="github" />
-            <a target="_blank" rel="noreferrer noopener" href="https://github.com/gershonv">
-              github
-            </a>
-          </li>
-          <li>
-            <i className="iconfont icon-juejin" />
-            <a target="_blank" rel="noreferrer noopener" href="https://juejin.im/user/5acac6c4f265da2378408f92">
-              juejin
-            </a>
-          </li>
-        </ul> */}
+        <div className="title">欲戴王冠，必承其重</div>
 
         <Divider orientation="left">{title}</Divider>
         <ul className="show-list">

@@ -13,12 +13,8 @@ let childRoutes = [
 // generator all the routes
 const routes = [
   ...childRoutes.filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0))
-  // {
-  //   path: '*',
-  //   name: 'Page not found',
-  //   component: PageNotFound
-  // }
 ]
+
 
 /**
  * 过滤路由信息，路由信息中含有 isIndex 的在渲染
@@ -38,5 +34,5 @@ function handleIndexRoute(route) {
   route.childRoutes.forEach(handleIndexRoute)
 }
 
-routes.forEach(handleIndexRoute)
+routes.forEach(handleIndexRoute);
 export default routes

@@ -25,11 +25,6 @@ const navList = [
     title: '分类',
     link: '/categories'
   },
-  // {
-  //   icon: 'user',
-  //   title: '关于',
-  //   link: '/about'
-  // }
 ]
 
 const BlogHeader = () => {

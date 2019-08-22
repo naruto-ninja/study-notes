@@ -169,6 +169,7 @@ function AuthModal(props) {
     register: '注册',
     updateUser: userInfo.email ? '修改账户信息' : '绑定邮箱'
   }
+ 
   return (
     <Modal title={titleMap[type]} width={460} footer={null} onCancel={handleClose} visible={authModalVisible}>
       {authModalType !== 'updateUser' ? null : !userInfo.email ? (
@@ -190,11 +191,6 @@ function AuthModal(props) {
 
       <Form layout="horizontal">
         <FormBuilder meta={formMeta} form={props.form} />
-
-        {/* <div className="tips-wrap">
-          <span className="tips">忘记密码请联系博主 gershonv@163.com</span>
-        </div> */}
-
         <Button type="primary" block htmlType="submit" onClick={handleSubmit}>
           {titleMap[type]}
         </Button>

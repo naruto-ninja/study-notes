@@ -1,12 +1,13 @@
-import lazy from '@/components/helper/lazy'
-import Layout from '@/components/admin/layout'
-import PageNotFound from '@/components/404'
 
-import Home from './home'
-const Edit = lazy(() => import('./article/edit'))
-const Login = lazy(() => import('./login'))
-const ArticleManage = lazy(() => import('./article/manage'))
-const UserManage = lazy(() => import('./user'))
+import * as utils from '@/utils'
+
+const Layout = utils.AsyncComponent(() => import(/* webpackChunkName:'adminLayout' */ '@/components/admin/layout'))
+const PageNotFound = utils.AsyncComponent(() => import(/* webpackChunkName:'admin404' */ '@/components/404'))
+const Home = utils.AsyncComponent(() => import(/* webpackChunkName:'adminHome' */ './home'))
+const Edit = utils.AsyncComponent(() => import(/* webpackChunkName:'edit' */ './article/edit'))
+const Login = utils.AsyncComponent(() => import(/* webpackChunkName:'login' */ './login'))
+const ArticleManage = utils.AsyncComponent(() => import(/* webpackChunkName:'manage' */ './article/manage'))
+const UserManage = utils.AsyncComponent(() => import(/* webpackChunkName:'user' */ './user'))
 
 export default {
   path: 'admin',

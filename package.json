@@ -68,6 +68,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node scripts/start.js",
     "start:prod": "cross-env NODE_ENV=production node scripts/start.js",
+    "build:dev": "cross-env NODE_ENV=development node scripts/build.js",
     "build": "cross-env NODE_ENV=production node scripts/build.js",
     "test": "node scripts/test.js"
   },
