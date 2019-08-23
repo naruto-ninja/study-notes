@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react'
-
 import { connect } from 'react-redux'
+import { Button, Dropdown, Avatar, Menu } from 'antd'
+
 import { register, logout } from '@/redux/user/actions'
 import { openAuthModal } from '@/redux/common/actions'
-
-import { Button, Dropdown, Avatar, Menu } from 'antd'
 import AuthModal from '../authModal'
 
 const mapStateToProps = state => ({

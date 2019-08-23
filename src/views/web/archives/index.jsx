@@ -1,6 +1,6 @@
 import React, { Component, Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Timeline, Icon, Pagination, Spin } from 'antd'
+import { Timeline, Icon, Spin } from 'antd'
 
 import { groupBy } from '@/lib'
 import './index.less'

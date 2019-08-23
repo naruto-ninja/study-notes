@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Button, Input, Modal, BackTop } from 'antd'
 
 import SimpleMDE from 'simplemde'
 import 'simplemde/dist/simplemde.min.css'
 import './index.less'
 import { translateMarkdown } from '@/lib/index'
 import api from '@/api/index'
-
-import { Button, Input, Modal, BackTop } from 'antd'
 import SelectCate from './components/Cate'
 
 @connect(state => state.article)

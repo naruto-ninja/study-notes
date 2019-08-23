@@ -1,23 +1,17 @@
 import React, { Component, Fragment, useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { Icon, Divider, Empty, Drawer } from 'antd'
+import { Icon, Divider, Drawer } from 'antd'
 
 import axios from '@/lib/axios'
 import { translateMarkdown, decodeQuery, getCommentsCount } from '@/lib'
 import { openDrawer, closeDrawer } from '@/redux/common/actions'
-
 import Tags from '../Tags'
 import Preview from './preview'
 import Loading from '@/components/helper/Loading'
 import BlogPagination from '@/components/web/pagination'
+
 import api from '@/api';
 import './index.less'
-
-const NoDataDesc = ({ keyword }) => (
-  <Fragment>
-    不存在标题中含有 <span className="keyword">{keyword}</span> 的文章！
-  </Fragment>
-)
 
 function Home(props) {
   const [list, setList] = useState([])
@@ -134,7 +128,9 @@ function Home(props) {
             </Fragment>
           ) : (
             <div className="no-data">
-              <Empty description={<NoDataDesc keyword={keyword} />} />
+               <Fragment>
+                <p>不存在标题中含有 <span className="keyword">{keyword}</span> 的文章!</p>
+              </Fragment>
             </div>
           )}
         </Fragment>

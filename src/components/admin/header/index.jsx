@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Button, Icon, Dropdown, Menu } from 'antd'
+import { Icon, Dropdown, Menu } from 'antd'
 import AuthorAvatar from '@/components/web/AuthorAvatar'
 import { logout } from '@/redux/user/actions'
 

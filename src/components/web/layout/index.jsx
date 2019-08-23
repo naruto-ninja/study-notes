@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Layout, Icon, Row, Col, BackTop } from 'antd'
+import { Layout, Row, Col, BackTop } from 'antd'
 
 import Header from '../header'
 import BolgSider from '../sider'

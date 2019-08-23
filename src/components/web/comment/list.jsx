@@ -1,11 +1,11 @@
 import React, { Component, memo } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import AuthorAvatar from '@/components/web/AuthorAvatar'
-
-import { random, groupBy, translateMarkdown } from '@/lib'
 import { Comment, Avatar, Button, Tooltip, Input, Icon, Popconfirm, message,  Modal } from 'antd'
 import moment from 'moment'
+
+import AuthorAvatar from '@/components/web/AuthorAvatar'
+import { random, groupBy, translateMarkdown } from '@/lib'
 import api from '@/api/index'
 
 const { TextArea } = Input

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Timeline, Pagination, Spin } from 'antd'
+import { Timeline, Spin } from 'antd'
 import BlogPagination from '@/components/web/pagination'
 
 import './index.less'
@@ -82,18 +82,6 @@ class List extends Component {
         <Spin tip="Loading..." spinning={loading}>
           <TimeLineList list={list} name={name} type={type} />
         </Spin>
-
-        {/* {total > 15 && (
-          <div className="pagination">
-            <Pagination
-              pageSize={15}
-              current={page}
-              onChange={this.onChange}
-              total={total}
-              simple={this.props.windowWidth < 736}
-            />
-          </div>
-        )} */}
 
         {list.length < total && (
           <BlogPagination current={parseInt(page) || 1} onChange={this.handlePageChange} total={total} pageSize={15} />

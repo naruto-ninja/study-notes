@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Divider, Tag, Icon } from 'antd'
+import { Divider, Tag } from 'antd'
 
 import avatar from '@/assets/author_avatar.png'
 import api from '@/api';

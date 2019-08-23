@@ -1,7 +1,6 @@
 import React from 'react'
 import greenMan from '@/assets/404.png'
 import { Link } from 'react-router-dom'
-import { Icon } from 'antd'
 
 import './index.less'
 
