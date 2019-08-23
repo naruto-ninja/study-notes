@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import './index.less'
-
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Table, Divider, Tag, Modal, message, Badge, Button } from 'antd'
 
 import { random, getCommentsCount } from '@/lib'
-import { Table, Divider, Tag, Modal, message, Badge, Button } from 'antd'
 import QueryForm from './queryForm'
 import moment from 'moment'
 import api from '@/api/index'
+import './index.less'
 
 @connect(state => ({
   colorList: state.common.colorList,

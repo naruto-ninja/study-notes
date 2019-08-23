@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import './index.less'
 import PropTypes from 'prop-types'
-
 import { Layout, Icon, Row, Col, BackTop } from 'antd'
+
 import Header from '../header'
 import BolgSider from '../sider'
+import './index.less'
 
 
 const { Content, Footer, Sider } = Layout
@@ -35,7 +35,12 @@ class WebLayout extends Component {
             </div>
           </Col>
         </Row>
-        <BackTop target={() => document.querySelector('.content-wrapper')} />
+        <BackTop 
+          target={() => document.querySelector('.content-wrapper')}
+          visibilityHeight='100'
+        >
+          <div className="ant-back-top-inner">UP</div>
+        </BackTop>
       </Layout>
     )
   }

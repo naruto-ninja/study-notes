@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './index.less'
 import { connect } from 'react-redux'
-
 import { withRouter } from 'react-router-dom'
-
+import { Button, Icon, Dropdown, Menu } from 'antd'
 import AuthorAvatar from '@/components/web/AuthorAvatar'
 import { logout } from '@/redux/user/actions'
-import { Button, Icon, Dropdown, Menu } from 'antd'
+
+import './index.less'
 
 const DropdownMenu = () => (
   <Menu className="menu">

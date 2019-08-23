@@ -1,10 +1,8 @@
 import React, { Component, Fragment, useEffect, useState } from 'react'
-import './index.less'
-import axios from '@/lib/axios'
-
 import { connect } from 'react-redux'
-
 import { Icon, Divider, Empty, Drawer } from 'antd'
+
+import axios from '@/lib/axios'
 import { translateMarkdown, decodeQuery, getCommentsCount } from '@/lib'
 import { openDrawer, closeDrawer } from '@/redux/common/actions'
 
@@ -13,6 +11,7 @@ import Preview from './preview'
 import Loading from '@/components/helper/Loading'
 import BlogPagination from '@/components/web/pagination'
 import api from '@/api';
+import './index.less'
 
 const NoDataDesc = ({ keyword }) => (
   <Fragment>

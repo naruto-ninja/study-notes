@@ -1,12 +1,12 @@
 import React, { Component, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import './index.less'
 import { connect } from 'react-redux'
-
 import { Modal, Input, Icon, message, Button, Form, Alert, Checkbox } from 'antd'
+
 import { login, register, updateUser } from '@/redux/user/actions'
 import { closeAuthModal, openAuthModal } from '@/redux/common/actions'
 import FormBuilder from '@/components/helper/FormBuilder'
+import './index.less'
 
 const CheckboxGroup = Checkbox.Group
 

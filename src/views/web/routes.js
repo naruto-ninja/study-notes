@@ -15,8 +15,8 @@ import * as utils from '@/utils'
     { path: 'archives', component: utils.AsyncComponent(() => import(/* webpackChunkName:'archives' */ './archives')) },
     { path: 'article/:id', component: utils.AsyncComponent(() => import(/* webpackChunkName:'article' */ './article')) },
     { path: 'categories', component: utils.AsyncComponent(() => import(/* webpackChunkName:'categories' */ './categories')) },
-    { path: 'categories/:name', component: utils.AsyncComponent(() => import(/* webpackChunkName:'list1' */ './list')) },
-    { path: 'tags/:name', component: utils.AsyncComponent(() => import(/* webpackChunkName:'list2' */ './list')) },
+    { path: 'categories/:name', component: utils.AsyncComponent(() => import(/* webpackChunkName:'list' */ './list')) },
+    { path: 'tags/:name', component: utils.AsyncComponent(() => import(/* webpackChunkName:'list' */ './list')) },
     { path: '*', component: utils.AsyncComponent(() => import(/* webpackChunkName:'404' */ '@/components/404')) }
   ]
 }

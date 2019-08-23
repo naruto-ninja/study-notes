@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import './index.less'
 import { connect } from 'react-redux'
-
 import { Link } from 'react-router-dom'
 import { Timeline, Pagination, Spin } from 'antd'
 import BlogPagination from '@/components/web/pagination'
+
+import './index.less'
 
 const TimeLineList = ({ list, name, type }) => {
   return (

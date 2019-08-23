@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import './index.less'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Button, message, Input, Icon } from 'antd'
+
 import { login } from '@/redux/user/actions'
 import logo from '@/assets/logo.svg'
+import './index.less'
 
 @withRouter
 @connect(

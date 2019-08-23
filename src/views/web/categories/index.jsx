@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import './index.less'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Badge, Tag } from 'antd'
 
-import { Link } from 'react-router-dom'
+import './index.less'
 
 @connect(state => ({
   categoryList: state.article.categoryList,

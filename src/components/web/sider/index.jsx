@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import './index.less'
 import { connect } from 'react-redux'
-import avatar from '@/assets/author_avatar.png'
 import { Link } from 'react-router-dom'
 import { Divider, Tag, Icon } from 'antd'
+
+import avatar from '@/assets/author_avatar.png'
 import api from '@/api';
+import './index.less'
 
 function random(colorList) {
   const len = colorList.length
